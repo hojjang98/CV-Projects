@@ -1,0 +1,40 @@
+# 📁 Image and data files
+images/
+images2/
+merged/ 
+data/
+dataset/
+*.csv
+*.json
+*.xlsx
+
+# 🧠 Model checkpoints and weights
+*.h5
+*.hdf5
+*.ckpt
+*.pb
+*.pth
+*.pt
+*.tflite
+*.onnx
+
+# 📦 Cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# 🔧 Environment and log files
+.env
+*.log
+*.swp
+
+# 💾 Other large output directories
+output/
+results/
+models/
+weights/
+runs/
