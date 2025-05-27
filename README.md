@@ -6,10 +6,12 @@ This repository contains a collection of deep learning projects focused on compu
 
 ## 📂 Folder Structure
 
+```
 CV-Projects/
 ├── dl-chapter-notebooks
 ├── food-image-classification
 └── real-time-daily-activity-recognizer
+```
 
 ---
 
