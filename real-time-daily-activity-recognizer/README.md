@@ -23,7 +23,7 @@ Inspired by modern computer vision applications, it aims to simulate how AI can 
   `brushing_teeth`, `drinking`, `eating`, `typing`,  
   `sleeping`, `reading`, `washing_face`, `walking`
 
-- **Images per class**: Around 900+ planned  
+- **Images per class**: Around 350+ planned  
 - **Availability**:  
   The dataset is **excluded from this repository** to avoid copyright issues.
 
