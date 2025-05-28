@@ -33,7 +33,7 @@ Rebuild the image classification pipeline using transfer learning after the init
 ---
 
 ### 📷 Screenshot
-![val_accuracy_plot](https://github.com/hojjang98/CV-Projects/tree/main/real-time-daily-activity-recognizer/figures/)
+![val_accuracy_plot](https://github.com/hojjang98/CV-Projects/blob/main/real-time-daily-activity-recognizer/figures/20250528_experiment.png)
 
 ---
 
