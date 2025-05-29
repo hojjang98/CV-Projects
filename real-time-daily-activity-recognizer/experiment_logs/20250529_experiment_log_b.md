@@ -33,7 +33,7 @@ Address the issue where many other classes are misclassified as `brushing_teeth`
 
 ### 📈 Training Curves  
 <p align="center">
-  <img src="../figures/exp_20250529_b.png" width="600"/>
+  <img src="https://github.com/hojjang98/CV-Projects/blob/main/real-time-daily-activity-recognizer/figures/20250529_experiment_b.png" width="600"/>
 </p>
 
 ---
