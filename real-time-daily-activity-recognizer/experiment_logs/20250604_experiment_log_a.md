@@ -49,8 +49,8 @@ Test whether grayscale transformation and a custom-built CNN can provide compara
 
 ---
 
-### 🧭 Next Steps (제안)
+### 🧭 Next Steps 
 - [ ] Increase model depth or filters (e.g., add more Conv layers or wider kernels)  
 - [ ] Compare against same architecture with RGB input to isolate grayscale effect  
-- [ ] Use smaller pretrained backbone (e.g., `EfficientNetB0`, `MobileNetV3`) on grayscale (converted to 3-channel)  
+- [ ] Use smaller pretrained backbone again? (e.g., `EfficientNetB0`, `MobileNetV3`) on grayscale (converted to 3-channel)  
 - [ ] Try contrast enhancement (e.g., CLAHE) during preprocessing to boost grayscale detail
