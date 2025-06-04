@@ -1,42 +1,55 @@
-### 🧪 Experiment Log – 2025/06/04  
-**📂 Project**: real-time-daily-activity-recognizer  
-**🧪 Experiment**: CNN with Grayscale Input  
-**🎯 Purpose**: Evaluate model performance with grayscale-converted input  
-**🖼️ Plot Saved To**:  
-`C:\Users\ghwns\HJ_git\CV-Projects\real-time-daily-activity-recognizer\figures\gray_experiment.png`
+📅 **2025/06/04 Experiment Log — Real-Time Activity Recognizer**
+
+**🧪 Experiment ID**: `exp_20250604_gray_cnn_b`  
+**🎯 Purpose**: Test performance of grayscale input using basic CNN architecture. Evaluate if grayscale input causes significant degradation in validation performance while keeping training stable.
 
 ---
 
-#### ✅ Experiment Details
-- **Input Format**: Grayscale images (1 channel)
-- **Model**: Simple CNN (Conv + MaxPooling + Dense layers)
+### ✅ Objective  
+Explore grayscale input's impact on validation accuracy when using a lightweight custom CNN. Compare against previous RGB-based baseline.
+
+---
+
+### ⚙️ Experiment Setup  
+- **Input Format**: Grayscale (`color_mode='grayscale'`)  
+- **Model Architecture**: Basic CNN  
+  - `Conv2D(32) → MaxPooling`  
+  - `Conv2D(64) → MaxPooling`  
+  - `Flatten → Dense(128) → Dense(Softmax)`  
+- **Augmentation**: None  
+- **Loss / Optimizer**: Categorical Crossentropy / Adam (lr=0.0001)  
+- **Callbacks**: `ModelCheckpoint` (save best only)  
 - **Epochs**: 20  
-- **Batch Size**: 128  
-- **Optimizer**: Adam (`lr=0.0001`)  
-- **Loss Function**: Categorical Crossentropy  
-- **Metric**: Accuracy
 
 ---
 
-#### 📊 Results Summary
-- **Best Validation Accuracy**: `0.5330` at Epoch 19  
-- **Overfitting**: ❌ No clear sign of overfitting (train/val gap moderate)  
-- **Underfitting**: ✅ Likely underfitting  
-  - Training accuracy plateaued at ~0.60  
-  - Grayscale input may have reduced class-distinguishing features
+### 📊 Results  
+- **Best Validation Accuracy**: `0.5330` at Epoch `19`  
+- **Observation**:  
+  - **Validation accuracy plateaued early** (~0.53), no signs of overfitting  
+  - **Training accuracy reached ~0.60**, indicating potential **underfitting**  
+  - **Loss curves** were smooth and consistent, both train/val steadily decreased  
+  - Model may lack capacity to extract sufficient features from grayscale input
 
 ---
 
-#### 🔍 Key Takeaways
-- Grayscale input did **not** improve performance  
-- Model may lack capacity to learn from limited grayscale info  
-- Using RGB may retain more discriminative features
+### 📈 Training Curves  
+<p align="center">
+  <img src="https://github.com/hojjang98/CV-Projects/blob/main/real-time-daily-activity-recognizer/figures/20250604_experiment_b.png" width="600"/>
+</p>
 
 ---
 
-#### 🔜 Next Steps
- Revert to RGB input to recover lost color information  
- Increase model depth / filter count (e.g., add more Conv layers, double filters)  
- Try transfer learning with MobileNet or similar architectures  
- Apply stronger data augmentation  
- Consider L2 regularization or Dropout to improve generalization
+### 🔍 Insights  
+- Grayscale input alone does not improve accuracy compared to RGB  
+- Feature richness may have been reduced, limiting the model’s discriminative power  
+- No overfitting observed, but capacity increase likely needed  
+- Consider grayscale only if computational budget is very limited
+
+---
+
+### 🧭 Next Steps  
+- [ ] Increase model capacity (add Conv layers, increase filters)  
+- [ ] Repeat this architecture with RGB input for comparison  
+- [ ] Try lightweight pretrained models (e.g., `MobileNet`, `EfficientNetB0`)  
+- [ ] Incorporate image enhancement techniques for grayscale clarity (e.g., CLAHE)
