@@ -47,17 +47,10 @@ Inspired by modern computer vision applications, it aims to simulate how AI can 
 ```bash
 real-time-daily-activity-recognizer/
 ├── .gitignore
-├── data/                      # Crawled image data (by class)
-├── figures/                   # Confusion matrix, prediction screenshots
-├── models/                    # Trained models (.h5, .tflite)
-├── notebooks/
-│   ├── 01_activity-crawling.ipynb
-│   ├── 02_activity-training.ipynb
-│   └── 03_realtime-prediction.ipynb
-├── scripts/
-│   ├── crawl_images.py
-│   ├── train_model.py
-│   └── predict_realtime.py
-├── utils/                     # Helper functions
+├── experiment_logs/           # Experiment markdown logs
+├── figures/                   # Training curves, confusion matrix, result plots
+├── images/                    # Crawled raw image data (organized by class)
+├── notebook/                  # Jupyter notebooks for model training/inference
 ├── requirements.txt
 └── README.md
+
