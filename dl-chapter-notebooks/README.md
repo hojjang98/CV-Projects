@@ -11,12 +11,13 @@ Each notebook corresponds to hands-on exercises or architecture implementations 
 
 ## 📓 Notebooks Included
 
-| File | Description |
-|------|-------------|
-| `LeNet-5.ipynb`         | Implementation of the LeNet-5 architecture (Chapter: CNN Fundamentals) |
-| `Base_CNN_Model.ipynb`  | Basic custom CNN architecture, exploring Conv and Pooling layers |
-| `cifar10.ipynb`         | Training a CNN on the CIFAR-10 dataset |
-| `CNN_Pipeline.ipynb`    | A modular training pipeline with evaluation logic for CNNs |
+| File                   | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| `LeNet-5.ipynb`        | Implementation of the LeNet-5 architecture (Chapter: CNN Fundamentals)     |
+| `Base_CNN_Model.ipynb` | Basic custom CNN architecture, exploring Conv and Pooling layers           |
+| `cifar10.ipynb`        | Training a CNN on the CIFAR-10 dataset                                     |
+| `CNN_Pipeline.ipynb`   | A modular training pipeline with evaluation logic for CNNs                 |
+| `AlexNet.ipynb`        | Modernized AlexNet implementation based on the original 2012 paper         |
 
 ---
 
