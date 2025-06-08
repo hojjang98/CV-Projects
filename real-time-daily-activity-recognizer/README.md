@@ -61,6 +61,7 @@ real-time-daily-activity-recognizer/
 ├── README.md                  # Project description and instructions
 └── requirements.txt           # Python dependencies
 
+````markdown
 ## 🚀 How to Run
 
 1. **Install Dependencies**
