@@ -49,19 +49,19 @@ The system uses a webcam and a transfer-learned CNN model to classify everyday a
 
 ---
 
-## 🗂️ Directory Structure
+## 📁 Directory Structure
 
 ```bash
 real-time-daily-activity-recognizer/
-├── .gitignore                  # Excludes checkpoints, temp files, dataset
-├── experiment_logs/           # Experiment logs in Markdown
-├── figures/                   # Accuracy/loss plots, confusion matrix images
-├── images/                    # Crawled images organized by class (not included in repo)
-├── notebook/                  # Jupyter Notebooks (training, crawling, inference)
-├── README.md                  # Project description and instructions
-└── requirements.txt           # Python dependencies
+├── .gitignore                # Excludes checkpoints, temp files, dataset
+├── experiment_logs/         # Experiment logs in Markdown
+├── figures/                 # Accuracy/loss plots, confusion matrix images
+├── images/                  # Crawled images organized by class (not included in repo)
+├── notebook/                # Jupyter Notebooks (training, crawling, inference)
+├── README.md                # Project description and instructions
+└── requirements.txt         # Python dependencies
+```
 
-````markdown
 ## 🚀 How to Run
 
 1. **Install Dependencies**
@@ -77,5 +77,5 @@ real-time-daily-activity-recognizer/
    - Check experiment logs in `experiment_logs/`
 
 4. **Run Inference (Webcam)**
-   - Use: `notebook/03_realtime_inference.ipynb`  
+   - Use: `notebook/03_realtime_inference.ipynb`
    - Or run a standalone script using `cv2.VideoCapture`
