@@ -1,56 +1,80 @@
 # 🎥 Real-Time Daily Activity Recognizer
 
-> *"Your webcam knows what you’re doing — let’s teach it how."*
+> *"Your webcam knows what you're doing — let's teach it how."*
 
-This project explores real-time human activity classification using webcam video and a CNN-based model trained on crawled images.  
-Inspired by modern computer vision applications, it aims to simulate how AI can recognize common daily behaviors like brushing teeth or eating.
+This project builds a real-time human activity recognition system powered by computer vision and deep learning.  
+The system uses a webcam and a transfer-learned CNN model to classify everyday activities such as brushing teeth, reading, or walking.
 
 ---
 
-## 🎯 Project Goal
+## 🎯 Objective
 
-- Build a real-time daily activity recognition system using computer vision
-- Crawl and prepare a custom dataset of human actions
-- Train a CNN-based model with transfer learning (e.g., MobileNetV2)
-- Use OpenCV to connect webcam input with live predictions
+- Build a live activity recognizer using webcam input and a CNN-based classifier
+- Collect a custom dataset of daily activities using Selenium-based image crawling
+- Train an image classifier using transfer learning (EfficientNetB0, MobileNetV2, etc.)
+- Use OpenCV to perform real-time inference with webcam video feed
 
 ---
 
 ## 📁 Dataset
 
-- **Source**: Images crawled using Google Images (via Selenium)  
-- **Categories**:  
-  `brushing_teeth`, `drinking`, `eating`, `typing`,  
-  `sleeping`, `reading`, `washing_face`, `walking`
+- **Source**: Google Images (via Selenium automation)
+- **Classes**:  
+  - `brushing_teeth`  
+  - `drinking`  
+  - `eating`  
+  - `typing`  
+  - `sleeping`  
+  - `reading`  
+  - `washing_face`  
+  - `walking`
 
-- **Images per class**: Around 350+ planned  
+- **Images per class**: Approx. 350~3000 images each (customizable)  
 - **Availability**:  
-  The dataset is **excluded from this repository** to avoid copyright issues.
+  The dataset is **excluded** from the repository to avoid copyright violations.
 
-> ⚠️ All images used in this project were collected solely for educational purposes and are stored locally.  
-> To build your own dataset, use the `activity-crawling.ipynb` notebook 
+> ⚠️ Images are collected solely for educational purposes and stored locally.  
+> You can build your own dataset using `notebook/activity-crawling.ipynb`.
 
 ---
 
-## 🔧 Techniques Used
+## 🔧 Techniques
 
 - Convolutional Neural Networks (CNN)
-- Transfer Learning (MobileNetV2)
-- Image Augmentation (`ImageDataGenerator`)
-- Real-time prediction with OpenCV
-- Evaluation: Confusion Matrix, Visual Prediction Output
+- Transfer Learning with EfficientNetB0 / MobileNetV2
+- Strong image augmentation using `ImageDataGenerator`
+- Real-time classification via OpenCV
+- Metrics visualization (accuracy, loss curves)
+- Evaluation with confusion matrix and prediction overlay
 
 ---
 
-## 🧱 Project Structure
+## 🗂️ Directory Structure
 
 ```bash
 real-time-daily-activity-recognizer/
-├── .gitignore
-├── experiment_logs/           # Experiment markdown logs
-├── figures/                   # Training curves, confusion matrix, result plots
-├── images/                    # Crawled raw image data (organized by class)
-├── notebook/                  # Jupyter notebooks for model training/inference
-├── requirements.txt
-└── README.md
+├── .gitignore                  # Excludes checkpoints, temp files, dataset
+├── experiment_logs/           # Experiment logs in Markdown
+├── figures/                   # Accuracy/loss plots, confusion matrix images
+├── images/                    # Crawled images organized by class (not included in repo)
+├── notebook/                  # Jupyter Notebooks (training, crawling, inference)
+├── README.md                  # Project description and instructions
+└── requirements.txt           # Python dependencies
 
+## 🚀 How to Run
+
+1. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Crawl Your Own Dataset (Optional)**
+   - Edit and run: `notebook/activity-crawling.ipynb`
+
+3. **Train the Model**
+   - Run notebook: `notebook/01_train_model.ipynb`
+   - Check experiment logs in `experiment_logs/`
+
+4. **Run Inference (Webcam)**
+   - Use: `notebook/03_realtime_inference.ipynb`  
+   - Or run a standalone script using `cv2.VideoCapture`
