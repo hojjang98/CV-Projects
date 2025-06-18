@@ -39,3 +39,15 @@ urban-scene-segmentation/
 ```
 ---
 
+## 📂 Dataset & License
+
+This project uses a publicly shared version of the **Cityscapes** dataset for semantic segmentation.
+
+- **Unofficial Kaggle Source**: [Kaggle - Cityscapes by xiaose](https://www.kaggle.com/datasets/xiaose/cityscapes/data)
+- **Original Dataset Reference**: [Cityscapes Official Site](https://www.cityscapes-dataset.com/)
+- **License**: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
+  The dataset is used strictly for **non-commercial, educational, and research** purposes.
+
+We do not redistribute the dataset directly. Please refer to the Kaggle link above to obtain the files.
+
+
