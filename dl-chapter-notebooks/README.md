@@ -11,13 +11,15 @@ Each notebook corresponds to hands-on exercises or architecture implementations 
 
 ## 📓 Notebooks Included
 
-| File                   | Description                                                                 |
-|------------------------|-----------------------------------------------------------------------------|
-| `LeNet-5.ipynb`        | Implementation of the LeNet-5 architecture (Chapter: CNN Fundamentals)     |
-| `Base_CNN_Model.ipynb` | Basic custom CNN architecture, exploring Conv and Pooling layers           |
-| `cifar10.ipynb`        | Training a CNN on the CIFAR-10 dataset                                     |
-| `CNN_Pipeline.ipynb`   | A modular training pipeline with evaluation logic for CNNs                 |
-| `AlexNet.ipynb`        | Modernized AlexNet implementation based on the original 2012 paper         |
+| File                                      | Description                                                              |
+|-------------------------------------------|--------------------------------------------------------------------------|
+| `LeNet-5.ipynb`                           | Implementation of the classic LeNet-5 architecture                       |
+| `Base_CNN_Model.ipynb`                    | Basic CNN architecture with Conv + Pool layers                           |
+| `AlexNet_modernized.ipynb`               | A modernized AlexNet implementation based on the original 2012 paper     |
+| `VGGNet_VGG16.ipynb`                      | VGGNet-based model from scratch with deep Conv layers                    |
+| `cifar10.ipynb`                           | CNN classification on CIFAR-10 dataset                                   |
+| `CNN_Pipeline.ipynb`                      | Modular pipeline for CNN training and evaluation                         |
+| `DL4VS_Ch06_CatDog_TransferLearning.ipynb`| Transfer learning using VGG16 on Cats vs Dogs (from Ch.6 of the book)    |
 
 ---
 
