@@ -1,44 +1,51 @@
-# 🧠 Deep Learning for Vision Systems – Chapter Notebooks
+# 🧠 Deep Learning for Vision Systems – Personal Reimplementation Notebooks
 
-This repository contains a collection of Jupyter notebooks implemented while studying  
+This repository contains a series of Jupyter notebooks inspired by the concepts in  
 **"Deep Learning for Vision Systems"** by Mohamed Elgendy.
 
-Each notebook corresponds to hands-on exercises or architecture implementations inspired by chapters in the book.
+Rather than following the book line-by-line, I have **read the full book** and now use it  
+as a reference point to **implement ideas in my own way** — through custom datasets,  
+modified architectures, and experimentation-driven learning.
 
-> ✅ Currently studied up to **page 260** (and counting!)
+> ✅ Book reading completed. This repo is for reinterpretation and reimplementation.
 
 ---
 
-## 📓 Notebooks Included
+## 🧪 What This Is
 
-| File                                      | Description                                                              |
-|-------------------------------------------|--------------------------------------------------------------------------|
-| `LeNet-5.ipynb`                           | Implementation of the classic LeNet-5 architecture                       |
-| `Base_CNN_Model.ipynb`                    | Basic CNN architecture with Conv + Pool layers                           |
-| `AlexNet_modernized.ipynb`               | A modernized AlexNet implementation based on the original 2012 paper     |
-| `VGGNet_VGG16.ipynb`                      | VGGNet-based model from scratch with deep Conv layers                    |
-| `cifar10.ipynb`                           | CNN classification on CIFAR-10 dataset                                   |
-| `CNN_Pipeline.ipynb`                      | Modular pipeline for CNN training and evaluation                         |
-| `DL4VS_Ch06_CatDog_TransferLearning.ipynb`| Transfer learning using VGG16 on Cats vs Dogs (from Ch.6 of the book)    |
+- 📌 This is **not** a reproduction of the book's official code  
+- 🚫 This is **not** a chapter-by-chapter copy  
+- ✅ This is my **own series of implementations**, grounded in the theory from the book
+
+Each notebook represents a unique take on concepts like:
+
+- CNN design and tweaking  
+- Transfer learning in new domains  
+- Augmentation and preprocessing pipelines  
+- Visualization and model evaluation  
+- Building pipelines from scratch, not following templates
 
 ---
 
 ## 📚 Reference
 
-- **Book**: *Deep Learning for Vision Systems*  
-- **Author**: Mohamed Elgendy  
-- **GitHub (Official Code)**: [github.com/AppliedDataSciencePartners/deep-learning-vision-systems](https://github.com/AppliedDataSciencePartners/deep-learning-vision-systems)
+- **Book**: *Deep Learning for Vision Systems* by Mohamed Elgendy  
+- **Original GitHub**: [github.com/AppliedDataSciencePartners/deep-learning-vision-systems](https://github.com/AppliedDataSciencePartners/deep-learning-vision-systems)
 
-These notebooks are intended for educational and personal learning purposes.
+This repository reflects a **personal reinterpretation** of ideas for deeper understanding  
+and hands-on mastery.
 
 ---
 
 ## 🚀 Goals
 
-This repository is part of an ongoing journey to build strong foundations in:
-- CNN architecture design
-- Image classification
-- Keras-based deep learning workflow
-- Best practices in notebook structuring and version control
+Through this work, I aim to:
 
-Stay tuned as more chapters are explored!
+- Strengthen my understanding by building from scratch  
+- Explore variations beyond what the book provides  
+- Use **realistic image data** I collected myself  
+- Develop reusable patterns for future CV tasks  
+- Document insights and struggles throughout the process
+
+More content will be added as I revisit and reinterpret each major idea.
+
