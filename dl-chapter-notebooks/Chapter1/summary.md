@@ -37,7 +37,7 @@ Each transformation was performed using basic OpenCV functions, mimicking the ki
 
 ### 🖼 Output Samples
 
-![Image Transformations]("https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter1/dog_transformed.jpg")
+![Image Transformations](https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter1/dog_transformed.jpg)
 
 > This grid shows how the same image can be interpreted very differently based on the applied transformation.  
 > These techniques are fundamental to CV tasks like noise reduction, edge detection, and data augmentation for training models.

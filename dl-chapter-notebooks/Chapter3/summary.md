@@ -65,7 +65,7 @@ Conv2d(16, 32, kernel_size=3, padding=1)
 | 4     | 0.3684 | 0.8641   |
 | 5     | 0.3564 | 0.8660   |
 
-![Training Graphs]("https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter3/training_loss_plot.png")
+![Training Graphs](https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter3/training_loss_plot.png)
 
 ---
 
@@ -73,14 +73,9 @@ Conv2d(16, 32, kernel_size=3, padding=1)
 
 Model shows strong bias toward predicting dogs correctly, but often misclassifies cats as dogs.
 
-            Predicted
-        |  Cat  |  Dog
-True ---------------------
-Cat     | 41    | 459
-Dog     | 19    | 3161
 
 
-![Confusion Matrix]("https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter3/Confusion_Matrix.png")
+![Confusion Matrix](https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter3/Confusion_Matrix.png)
 
 ---
 
@@ -88,7 +83,7 @@ Dog     | 19    | 3161
 
 ### ✅ Correct Predictions
 
-![Correct Predictions]("https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter3/correct_predictions.png")
+![Correct Predictions](https://github.com/hojjang98/CV-Projects/blob/main/dl-chapter-notebooks/Chapter3/correct_predictions.png)
 
 *GT: Ground Truth, Pred: Model Prediction*
 
@@ -123,9 +118,8 @@ This was a hands-on, exploratory exercise focused on learning through implementa
 
 ## 📁 Files
 
-- `cnn_catdog_train.py` – Training code
-- `chapter3.ipynb` – Jupyter notebook version
-- `README.md` – This document
+- `01_classification_dog_cat.ipynb` – Jupyter notebook version
+- `summary.md` – This document
 - Images: `training_plot.png`, `confusion_matrix.png`, `correct_predictions.png`
 
 
