@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Dataset / raw data
+data/
+datasets/
+*.zip
+*.tar.gz
+
+# Model weights or logs
+*.pt
+*.pth
+*.log
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+*.swp
