@@ -36,4 +36,4 @@ CV-Projects/
 ## 👤 Author
 
 Maintained by [hojjang98](https://github.com/hojjang98)  
-📅 Last updated: May 2025
+📅 Last updated: July 2025
