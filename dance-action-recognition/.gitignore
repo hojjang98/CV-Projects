@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.ipynb_checkpoints
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Data & outputs
+*.npy
+*.mp4
+*.jpg
+*.avi
+*.mkv
+
+# Pose data & frames
+pose_data/
+frames_ref/
+frames_user/
+
+# Logs & checkpoints
+*.log
+*.ckpt
+*.pt
+*.h5
+
+# Others
+*.bak
+*.tmp
+*.swp
