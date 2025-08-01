@@ -1,138 +1,103 @@
-# 🕺 PoseSyncEvaluator: 2D Dance Alignment with Pose & DTW
+# 🕺 PoseSyncEvaluator
 
-> *"Are we really dancing the same?"*
-
-🚧 **This project is a Work In Progress (WIP)** 🚧  
-🟢 Currently developed and tested in **Google Colab**
-
-This project is inspired by ideas from the paper:  
-**“Unsupervised 3D Pose Estimation for Hierarchical Dance Video Recognition” (ICCV 2021)**  
-While the original paper focuses on 3D poses and genre classification, I explored how similar ideas can be applied to 2D pose-based dance alignment and motion scoring.
+> **A Lightweight Dance Motion Alignment App Using 2D Poses, Cosine Similarity, and DTW**  
+> Compare two dance motions frame-by-frame with pose-based similarity scoring and visual feedback.
 
 ---
 
-## 🎯 Project Goal
+## 🎯 What This Project Does
 
-- Extract 2D human poses from dance videos using MediaPipe  
-- Align movements with DTW (Dynamic Time Warping)  
-- Quantify similarity using cosine scores + temporal alignment  
-- Visualize and interpret how well two dances match  
+This project evaluates how well two dance motions align by:
 
----
-
-## 📁 Dataset
-
-- **Source**: YouTube dance clips (for educational purposes only)  
-- **Types**: One reference video, one user performance  
-- **Usage**: Stored locally for evaluation. Not included in this repo.
-
-> ⚠️ All videos and frame data are excluded from version control via `.gitignore`.
+- Extracting 2D human poses from videos using **MediaPipe**
+- Measuring motion similarity using **Cosine Similarity (per frame)**
+- Performing **temporal alignment** with **FastDTW**
+- Visualizing results and generating **natural language feedback** through **Streamlit**
 
 ---
 
-## 🔧 Techniques Used
+## 🛠️ Techniques Used
 
-- MediaPipe Pose (33 keypoints)  
-- Cosine Similarity (per frame)  
-- FastDTW (temporal alignment)  
-- Visualization: similarity curves & DTW path  
-
----
-
-## 📊 Sample Output
-
-- Frame-by-frame cosine similarity plot  
-- DTW alignment map (reference vs. user)  
-- Overall matching score (frame + motion)
+- **MediaPipe Pose** (33 keypoints)
+- **Cosine Similarity** (frame-level)
+- **FastDTW** (sequence alignment)
+- **Matplotlib** & **Streamlit** for visualization and interaction
 
 ---
 
-## 💭 Research Direction
+## 📁 Project Structure
 
-This project is part of my ongoing effort to build a pose-based motion evaluation system.  
-It is also the **first module in my broader `cv-projects` collection**, which will include multiple computer vision experiments focused on motion, feedback, and real-time interaction.
+pose-sync-evaluator/
+├── pose_data/ # Contains .npy pose keypoints (excluded from version control)
+├── 01_pose-sync-evaluator.ipynb # Colab-based pipeline for pose extraction and evaluation
+├── pose_evaluator_app.py # Streamlit app for similarity analysis
+└── README.md
 
-Planned extensions include:
-
-- Real-time similarity measurement from webcam or video stream  
-- Visual feedback overlays for training or dance practice  
-- Human-centered feedback systems for intuitive pose guidance  
-- Lightweight alternatives to 3D motion scoring for practical deployment
-
-Eventually, I aim to develop this into a research prototype or paper proposal.
 
 ---
 
-## 🧠 Key Notebook
+## 🚀 How to Try
 
-| 📓 Notebook | 🔗 Link |
-|------------|--------|
-| Main Pipeline | `01_pose-sync-evaluator.ipynb` |
+# 📦 [1] Install dependencies (Colab or local)
+pip install yt-dlp fastdtw mediapipe opencv-python-headless matplotlib scipy streamlit
 
----
+# 🎥 [2] Download reference and user videos from YouTube
+yt-dlp -f bestvideo+bestaudio --merge-output-format mp4 "https://www.youtube.com/watch?v=REF_VIDEO_ID" -o reference.mp4
+yt-dlp -f bestvideo+bestaudio --merge-output-format mp4 "https://www.youtube.com/watch?v=USER_VIDEO_ID" -o user.mp4
 
-## 🧪 Environment
+# ✂️ [3] Trim videos to focus segment (adjust -ss as needed)
+ffmpeg -ss 00:00:09 -i reference.mp4 -c copy reference_trimmed.mp4
+ffmpeg -ss 00:00:11 -i user.mp4 -c copy user_trimmed.mp4
 
-This project is developed and tested on **Google Colab**,  
-with the following setup:
+# 🖼️ [4] Extract frames from videos (2 fps)
+mkdir -p frames/reference frames/user
+ffmpeg -i reference_trimmed.mp4 -vf fps=2 frames/reference/frame_%04d.jpg
+ffmpeg -i user_trimmed.mp4 -vf fps=2 frames/user/frame_%04d.jpg
 
-- Python 3.11  
-- `yt-dlp`, `opencv-python-headless`, `mediapipe`, `fastdtw`  
-- Notebook includes YouTube video download + frame extraction + pose processing
+# 🧍 [5] (Run notebook) Extract pose data from frames using MediaPipe
+# 👉 Save .npy files into:
+#     pose_data/gukmin/ (reference)
+#     pose_data/user_trial_01/ (user)
 
-> For local execution, ensure you install all dependencies and adjust paths accordingly.
-
----
-
-## 🚀 How to Run
-
-### 🟢 Google Colab (Recommended for Quick Testing)
-
-1. Clone or upload this notebook to Colab  
-2. Install dependencies:
-   ```bash
-   pip install yt-dlp fastdtw mediapipe opencv-python-headless
-3. Download & trim videos:
-    yt-dlp -f bestvideo+bestaudio --merge-output-format mp4 "https://www.youtube.com/watch?v=YOUR_REFERENCE_VIDEO" -o "reference.mp4"
-    yt-dlp -f bestvideo+bestaudio --merge-output-format mp4 "https://www.youtube.com/watch?v=YOUR_USER_VIDEO" -o "user.mp4"
-
-    ffmpeg -ss 00:00:09 -i reference.mp4 -c copy reference_trimmed.mp4
-    ffmpeg -ss 00:00:11 -i user.mp4 -c copy user_trimmed.mp4
-4. Extract frames:
-    import os
-    def extract_frames_with_ffmpeg(video_path, output_dir, fps=2):
-     os.makedirs(output_dir, exist_ok=True)
-     os.system(f"ffmpeg -i {video_path} -vf fps={fps} {output_dir}/frame_%04d.jpg")
-
-    extract_frames_with_ffmpeg("reference_trimmed.mp4", "frames/reference", fps=2)
-    extract_frames_with_ffmpeg("user_trimmed.mp4", "frames/user", fps=2)
-5. Run the notebook to extract poses and evaluate similarity
-6. View cosine similarity and DTW alignment results
-
-### 💻 Local Execution with Streamlit
-1. Install dependencies:
-    pip install fastdtw streamlit mediapipe opencv-python matplotlib scipy
-2. Prepare folders (with .npy pose files per frame):
-    pose_data/
-    ├── gukmin/              # Reference pose keypoints
-    │   ├── frame_0000.npy
-    │   ├── ...
-    └── user_trial_01/       # User's pose keypoints
-         ├── frame_0000.npy
-        ├── ...
-3. Launch the Streamlit app:
+# 🚀 [6] Launch Streamlit app
 streamlit run pose_evaluator_app.py
-4. In the browser, input folder paths:
-pose_data/gukmin
-pose_data/user_trial_01
 
-The app will display:
-    ✅ Cosine Similarity Score
-    ✅ DTW Score
-    ✅ Frame-by-frame similarity plot
-    ✅ Natural language feedback
+# 🌐 [7] In your browser, enter:
+#     pose_data/gukmin
+#     pose_data/user_trial_01
 
-Dance may be expressive, but even movement can be measured.
-This is a WIP project — and just the beginning of my cv-projects journey. 🔄
+## 💡 Applications
 
+- 🕺 **Dance Practice Evaluation**  
+  Compare a learner’s motion to a reference for training or feedback.
+
+- 🧘 **Human Motion Alignment & Coaching**  
+  Align physical therapy movements, exercise routines, or performance.
+
+- 🧑‍🏫 **Educational Tools**  
+  Provide intuitive feedback in dance or physical education classes.
+
+- ⚡ **Lightweight Motion Evaluation**  
+  Practical alternative to 3D pose-based scoring with minimal setup.
+
+---
+
+## 🔍 Background
+
+This project was inspired by ideas from the paper:  
+**"Unsupervised 3D Pose Estimation for Hierarchical Dance Video Recognition" (ICCV 2021)**
+
+While the original paper focuses on **genre classification using 3D pose sequences**,  
+this work explores **2D pose-based motion alignment and similarity scoring**  
+with an emphasis on practical feedback and real-time usability.
+
+---
+
+## 🧠 Final Note
+
+This project is part of my personal **Computer Vision portfolio**,  
+highlighting my interest in **human motion analysis**, **pose estimation**, and  
+**interactive feedback systems** grounded in visual AI.
+
+> *Dance may be expressive — but even movement can be measured.*
 
