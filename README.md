@@ -11,7 +11,8 @@ This repository contains a collection of deep learning projects focused on compu
 CV-Projects/
 ├── food-image-classification
 ├── pose-sync-evaluator
-└── real-time-daily-activity-recognizer
+├── real-time-daily-activity-recognizer
+└── recyclable-waste-classification
 
 ```
 
@@ -25,6 +26,10 @@ CV-Projects/
 
 - [Real-Time Daily Activity Recognizer](./real-time-daily-activity-recognizer)  
   Real-time activity classification using webcam input and CNN-based models.  
+
+- [Recyclable Waste Classification](./recyclable-waste-classification)  
+  Image classification of recyclable materials (cardboard, glass, metal, etc.) using CNN baselines and transfer learning (ResNet, EfficientNet).  
+
 
 
 ## 🛠️ Tools & Technologies
@@ -41,6 +46,7 @@ CV-Projects/
 - Pose-based evaluation and synchronization analysis  
 - Real-time activity recognition with webcam input  
 - Hands-on deep learning practice through structured experiments  
+- Environmental AI: recyclable waste image classification
 
 ---
 
