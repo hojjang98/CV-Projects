@@ -57,7 +57,7 @@ During preprocessing:
 ![Baseline Results](outputs/base_cnn_model_result.png)
 
 ## 🔄 Transfer Learning vs Baseline
-![Baseline_vs_Transfer](outputs/baseline vs transfer.png)
+![Baseline_vs_Transfer](outputs/baseline_vs_transfer.png)
 
 ## 📉 Confusion Matrix (MobileNetV2)
 ![Confusion Matrix](outputs/mobilenetv2_confusion_matrix.png)
