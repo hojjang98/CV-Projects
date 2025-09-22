@@ -81,6 +81,8 @@ garbage-classification/
 ├── app_webcam.py # Streamlit webcam demo
 ├── outputs/ # Saved figures (confusion matrix, curves)
 ├── README.md # Project documentation
+├── requirements.txt
+
 
 ```
 
@@ -101,6 +103,38 @@ garbage-classification/
 - Domain adaptation with **webcam-collected samples**  
 
 ---
+
+## 🚀 How to Run
+
+### 1. Run the Notebook (Model Training & Evaluation)
+
+``` bash
+
+jupyter notebook garbage_classification.ipynb
+
+This notebook includes:
+- Dataset exploration & preprocessing  
+- Baseline CNN training  
+- Transfer learning with MobileNetV2 (fine-tuning)  
+- Evaluation (confusion matrix, classification report)  
+
+```
+
+---
+
+
+### 2. Run the Streamlit Demo (Webcam Classification)
+
+``` bash
+
+pip install -r requirements.txt
+streamlit run app_webcam.py
+
+
+- Ensure `garbage_classifier.h5` (trained model) is located in the same directory  
+- Open your browser at [http://localhost:8501](http://localhost:8501) to test webcam classification  
+
+```
 
 ## 👤 Author
 Maintained by [hojjang98](https://github.com/hojjang98)  
