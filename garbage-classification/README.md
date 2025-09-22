@@ -6,25 +6,68 @@
 ---
 
 ## 🎯 Objectives
-- Perform **EDA & preprocessing** on a garbage image dataset  
-- Train a **baseline CNN** model for classification  
-- Apply **transfer learning** (ResNet18, EfficientNetB0, etc.) for higher accuracy  
-- Evaluate model performance with metrics and confusion matrices  
+- Explore and preprocess a garbage image dataset (6 categories)  
+- Train a **baseline CNN** model for comparison  
+- Apply **transfer learning with MobileNetV2** and fine-tuning  
+- Analyze performance with metrics and confusion matrix  
+- Deploy a **Streamlit demo** for real-time classification via webcam  
 
 ---
 
 ## 🧠 Methods
-- **Dataset**: Garbage classification dataset (6–7 categories)  
+- **Dataset**: Garbage classification dataset (cardboard, glass, metal, paper, plastic, trash)  
 - **Baseline Model**: Simple CNN (Conv → Pool → FC)  
-- **Transfer Learning**: ResNet18 / EfficientNetB0 (fine-tuned on dataset)  
-- **Evaluation**: Accuracy, precision/recall/F1, confusion matrix  
+- **Transfer Learning**: MobileNetV2 (feature extraction + fine-tuning, input size 224×224)  
+- **Evaluation**: Accuracy, F1-score, confusion matrix, classification report  
+- **Deployment**: Streamlit app (`app_webcam.py`) with webcam input  
 
 ---
 
-## 📊 Results (So Far)
-- **Baseline CNN**: ~60% accuracy after 10 epochs  
-- **Transfer Learning (ResNet18)**: ~80%+ accuracy achieved  
-- Further improvements expected with **augmentation + regularization**  
+## 📂 Dataset
+This project uses the **Garbage Classification Dataset** from Kaggle:  
+[Garbage Classification – Kaggle](https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification)
+
+- **Categories**: cardboard, glass, metal, paper, plastic, trash  
+- **Images**: ~2,500+ labeled samples  
+- **Format**: RGB images, varying sizes, organized in folders by class  
+
+During preprocessing:
+- Images were resized to **224×224**  
+- Training/validation split of **80/20** was applied  
+- Data augmentation (flip, rotation, zoom, contrast) was used to improve generalization  
+
+---
+
+
+## 📊 Results
+| Model                 | Input Size | Val Accuracy |
+|-----------------------|------------|--------------|
+| Baseline CNN          | 128×128    | ~60%         |
+| MobileNetV2 (frozen)  | 128×128    | ~78%         |
+| MobileNetV2 (FT 40)   | 224×224    | ~84%         |
+
+---
+
+
+## 📊 Dataset
+![Class Distribution](outputs/class_distribution.png)
+![Sample Images](outputs/sample_images.png)
+
+## 🚀 Baseline CNN
+![Baseline Results](outputs/base_cnn_model_result.png)
+
+## 🔄 Transfer Learning vs Baseline
+![Baseline vs Transfer](outputs/baseline_vs_transfer.png)
+
+## 📉 Confusion Matrix (MobileNetV2)
+![Confusion Matrix](outputs/mobilenetv2_confusion_matrix.png)
+
+---
+
+**Confusion Matrix Highlights**  
+- Paper, metal, cardboard classified with high accuracy (>85%)  
+- Plastic ↔ Glass confusion observed  
+- Trash class remains weakest (recall ~62%)  
 
 ---
 
@@ -33,28 +76,34 @@
 ```bash
 
 garbage-classification/
-├── garbage_classification.ipynb  # Main notebook: EDA, training, evaluation
-├── README.md                     # Project description
+├── garbage_classification.ipynb # Main notebook: EDA, training, evaluation
+├── garbage_classifier.h5 # Trained MobileNetV2 model
+├── app_webcam.py # Streamlit webcam demo
+├── outputs/ # Saved figures (confusion matrix, curves)
+├── README.md # Project documentation
 
 ```
+
 ---
 
 ## 🚫 Limitations
-- Dataset size is relatively small → risk of **overfitting**  
-- Class distribution is **imbalanced**, which may bias predictions  
-- Experiments so far are limited to **image classification only** (no detection/segmentation)  
-- Results depend heavily on **transfer learning**; baseline model alone performs poorly  
+- Dataset size is small and **class imbalance** exists (trash under-represented)  
+- **Plastic vs Glass** often confused due to visual similarity  
+- **Domain gap**: real-time webcam input less reliable than validation dataset  
+- MobileNetV2 relies heavily on **texture & color cues**, less robust to shape/lighting differences  
 
 ---
 
 ## 🔭 Next Steps
-- Add **data augmentation** (rotation, flip, color jitter)  
-- Hyperparameter tuning with **Optuna**  
-- Try **ensemble models** (Voting/Stacking of CNN + ResNet + EfficientNet)  
-- Deploy lightweight model for **real-time demo**  
+- Stronger **data augmentation** (brightness, contrast, random crop)  
+- **Background removal** for webcam input  
+- Test more **shape-aware architectures** (EfficientNetV2, Vision Transformer)  
+- Domain adaptation with **webcam-collected samples**  
 
 ---
 
 ## 👤 Author
 Maintained by [hojjang98](https://github.com/hojjang98)  
 📅 Last updated: September 2025
+
+
